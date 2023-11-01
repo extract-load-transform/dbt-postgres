@@ -7,8 +7,9 @@ RUN pip install dbt-postgres
 
 # install postgres client
 RUN apt update \
-    && apt install -y postgresql-client git
+    && apt install -y postgresql-client git tree
 
+# create least privileged user
 RUN groupadd -g 501 user && \
     useradd -m -u 500 user -g user
 
