@@ -21,20 +21,23 @@ dbt --version
 
 ```text
 .
+├── .dbt
+│   └── profiles.yml
+├── .devcontainer
+│   ├── Dockerfile
+│   ├── devcontainer.json
+│   └── docker-compose.yml
+├── .gitignore
 ├── README.md
 ├── analyses
 ├── dbt_packages
 ├── dbt_project.yml
 ├── logs
-│   └── dbt.log
 ├── macros
 ├── models
-│   └── ...
 ├── seeds
 ├── snapshots
 ├── target
-│   ├── ...
-│   └── ...
 └── tests
 ```
 
