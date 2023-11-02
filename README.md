@@ -18,19 +18,24 @@ dbt --version
 
 ## directory structure
 
+
 ```text
 .
-├── .dbt
-│   └── profiles.yml
-├── .devcontainer
-│   ├── Dockerfile
-│   ├── devcontainer.json
-│   └── docker-compose.yml
 ├── README.md
-└── projects
-    └── my_project
-        ├── ...
-        └── ...
+├── analyses
+├── dbt_packages
+├── dbt_project.yml
+├── logs
+│   └── dbt.log
+├── macros
+├── models
+│   └── ...
+├── seeds
+├── snapshots
+├── target
+│   ├── ...
+│   └── ...
+└── tests
 ```
 
 ## Create dbt project
@@ -49,17 +54,16 @@ Enter a number: 2
 # move dbt profile to repo so that it can saved in repository
 cp -r /home/user/.dbt .dbt
 
-mkdir projects
-mv my_project projects
-
+# move all files from sub-directory to repo root
+mv my_project_01/* .
 ```
 
 ```bash
-dbt debug --profiles-dir ../../.dbt --target dev
+dbt debug --profiles-dir .dbt --target dev
 
-dbt run --profiles-dir ../../.dbt --target dev
+dbt run --profiles-dir .dbt --target dev
 
-dbt test --profiles-dir ../../.dbt --target dev
+dbt test --profiles-dir .dbt --target dev
 ```
 
 ```bash
